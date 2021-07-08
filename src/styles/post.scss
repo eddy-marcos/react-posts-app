@@ -1,0 +1,22 @@
+.post {
+    background-color: whitesmoke;
+    padding: 0px 15px 15px;
+    margin: 15px;
+    border: 1px solid #000;
+
+    .comment-button  {
+        cursor: pointer;
+        background-color: aliceblue;
+        padding: 5px;
+        margin-right: 5px;
+
+        &.add {
+            background-color: #ccc;
+        }
+    }
+
+    .no-comments {
+        font-size: 12px;
+        color: indianred;
+    }
+}

@@ -1,12 +1,11 @@
 import React, { useEffect} from 'react'
+import Post from './Post';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../actions/posts';
-import Post from './Post';
 
 const Posts = () => {
     const posts = useSelector((state) => state.posts);
     const dispatch = useDispatch();
-    
 
     useEffect(() => {
        
@@ -14,18 +13,17 @@ const Posts = () => {
 
     }, [dispatch])
 
-
     return (
         <div>
-        {
-            posts && posts.map( (post) => (
-                <Post 
-                    key={post.id} 
-                    post={post} 
-                    dataKey={post.id}
-                />
-            ))
-        }
+            {
+                posts && posts.map( (post) => (
+                    <Post 
+                        key={post.id} 
+                        post={post} 
+                        dataKey={post.id}
+                    />
+                ))
+            }
         </div>
     )
 }
