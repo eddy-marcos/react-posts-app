@@ -6,4 +6,14 @@ The APp fetches from the posts and comments API’s, presents a list of posts an
 
 ### Technologies:
 React, redux, jest for testing
+react testing library, axios
 Sass that provides some features like nested rules, helps to keep the stylesheet well organized.
+
+### Setup Instructions
+clone this project
+
+#### npm install
+#### npm start
+
+
+to run tests:  npm run test
