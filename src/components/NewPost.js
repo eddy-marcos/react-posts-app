@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sendPosts } from '../actions/posts';
 import '../styles/form.scss';
 
@@ -7,7 +7,9 @@ const NewPost = ( {id} ) => {
     const [newItem, setNewItem] = useState(false);
     const [formValues, setFormValues] = useState({postId: 0, id: 0, name: '', email: '', body: ''});
     const dispatch = useDispatch();
+    const commentsLenght = useSelector((state) => state.comments.length);
 
+    
     const handleSubmit = (e) => {
         e.preventDefault();
                        
@@ -28,7 +30,7 @@ const NewPost = ( {id} ) => {
                  <label htmlFor="title">Title: </label> <br />
                  <input type="text" name="title" id="title" autoComplete="off" required
                      value={formValues.name}
-                     onChange={(e) => setFormValues({ ...formValues, postId: id, id, name: e.target.value })}
+                     onChange={(e) => setFormValues({ ...formValues, postId: id, id: commentsLenght + 1, name: e.target.value })}
                  />
              </div>
              
@@ -36,7 +38,7 @@ const NewPost = ( {id} ) => {
                  <label htmlFor="email">Email: </label> <br />
                  <input type="email" name="email" id="email" autoComplete="off" required
                      value={formValues.email}
-                     onChange={(e) => setFormValues({ ...formValues, postId: id, id, email: e.target.value })}
+                     onChange={(e) => setFormValues({ ...formValues, postId: id, id: commentsLenght + 1, email: e.target.value })}
                  />
              </div>
             
@@ -44,7 +46,7 @@ const NewPost = ( {id} ) => {
                  <label htmlFor="description">Description: </label> <br />
                  <textarea name="description" id="description" autoComplete="off" required rows="3"
                      value={formValues.body} 
-                     onChange={(e) => setFormValues({ ...formValues, postId: id, id, body: e.target.value })}
+                     onChange={(e) => setFormValues({ ...formValues, postId: id, id: commentsLenght + 1, body: e.target.value })}
                  ></textarea>
              </div>
              <div>

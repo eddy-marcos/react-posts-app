@@ -3,7 +3,7 @@ import '../styles/header.scss';
 
 const Header = () => {
     return (
-        <h1>
+        <h1 data-testid="header">
             New Posts
         </h1>
     )

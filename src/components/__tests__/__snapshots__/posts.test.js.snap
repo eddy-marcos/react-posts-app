@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`post component matches snapshot 1`] = `
+<div
+  className="post"
+  data-testid="post-element"
+>
+  <h3>
+    sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+  </h3>
+  <p>
+    quia et suscipit
+suscipit recusandae consequuntur expedita et cum
+reprehenderit molestiae ut ut quas totam
+nostrum rerum est autem sunt rem eveniet architecto
+  </p>
+  <button
+    className="comment-button"
+    onClick={[Function]}
+  >
+    Show Comments
+  </button>
+  <div>
+    
+  </div>
+</div>
+`;
