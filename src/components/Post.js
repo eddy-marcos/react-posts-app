@@ -3,7 +3,7 @@ import '../styles/post.scss';
 import Comments from './Comments';
 import NewPost from './NewPost';
 
-const Post = ({ post, dataKey }) => {
+const Post = ({ post }) => {
     const [currentPost, setcurrentPost] = useState(null);
     const { userId: bodyId, id, title, body: postBody } = post;
 
