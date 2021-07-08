@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { sendPosts } from '../actions/posts';
 import '../styles/form.scss';
 
-const NewPost = ( {userId, id} ) => {
+const NewPost = ( {id} ) => {
     const [newItem, setNewItem] = useState(false);
     const [formValues, setFormValues] = useState({postId: 0, id: 0, name: '', email: '', body: ''});
     const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import NewPost from './NewPost';
 
 const Post = ({ post }) => {
     const [currentPost, setcurrentPost] = useState(null);
-    const { userId: bodyId, id, title, body: postBody } = post;
+    const { id, title, body: postBody } = post;
 
     const renderComments = () => {
         setcurrentPost(id);
@@ -23,7 +23,7 @@ const Post = ({ post }) => {
                     currentPost ? 
                         <>
                             <Comments currentPost={currentPost}/> 
-                            <NewPost userId={bodyId} id={id}/>
+                            <NewPost id={id}/>
                         </>
                     : '' }
 
