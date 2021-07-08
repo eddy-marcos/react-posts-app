@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/post.scss';
 import Comments from './Comments';
+import NewPost from './NewPost';
 
 const Post = ({ post, dataKey }) => {
     const [currentPost, setcurrentPost] = useState(null);
     const { userId: bodyId, id, title, body: postBody } = post;
 
     const renderComments = () => {
-        setcurrentPost(bodyId);
+        setcurrentPost(id);
     }
 
     return (
@@ -18,7 +19,14 @@ const Post = ({ post, dataKey }) => {
                 <button className="comment-button" onClick={renderComments}>Show Comments</button>
 
                 <div>
-                    {currentPost ? <Comments currentPost={currentPost}/> : ''}
+                    {
+                    currentPost ? 
+                        <>
+                            <Comments currentPost={currentPost}/> 
+                            <NewPost userId={bodyId} id={id}/>
+                        </>
+                    : '' }
+
                  </div>
             </div>
         </>

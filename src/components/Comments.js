@@ -7,6 +7,7 @@ const Comments = ({ currentPost }) => {
     const comments = useSelector((state) => state.comments);
     const dispatch = useDispatch();
     
+console.log('currentPost ', currentPost);
     const generateRelatedComments = () => {
         const relatedComments = comments.filter( comment => comment.postId === currentPost);
        
