@@ -11,8 +11,8 @@ const Comments = ({ currentPost }) => {
         const relatedComments = comments.filter( comment => comment.postId === currentPost);
        
         return (
-            relatedComments.map( relatedComment => (
-                <div key={relatedComment.id} className="comment">
+            relatedComments.map( (relatedComment, index) => (
+                <div key={index} className="comment">
                     <div className="comment-name">{relatedComment.name}</div>
                     <div className="comment-body">{relatedComment.body}</div>
                     <div className="comment-email">{relatedComment.email}</div>
