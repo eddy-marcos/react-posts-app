@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-const postsUrl = 'https://jsonplaceholder.typicode.com/posts';
-const commentsUrl = 'https://jsonplaceholder.typicode.com/comments';
+const API = axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' });
 
-export const fetchPosts = () => axios.get(postsUrl);
-export const fetchComments = () => axios.get(commentsUrl);
-export const newPost = (newPost) => axios.post(commentsUrl, newPost);
+// actual http requests
+export const fetchPosts = () => API.get('/posts');
+export const fetchComments = () => API.get('/comments');
+export const newPost = (newPost) => API.post('/comments', newPost);
+
