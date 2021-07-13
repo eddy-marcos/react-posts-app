@@ -3,13 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sendPosts } from '../actions/posts';
 import '../styles/form.scss';
 
+/**
+ * Returns comment button along with the 'new comment' form
+ * @param {number} id - post id
+ * @param {boolean} showNewCommentsButton - boolean used to render 'add comment' button
+ * @returns {HTMLElement} form
+ */
 const NewPost = ( {id, showNewCommentsButton} ) => {
     const [newItem, setNewItem] = useState(false);
     const [formValues, setFormValues] = useState({postId: 0, id: 0, name: '', email: '', body: ''});
     const dispatch = useDispatch();
     const commentsLenght = useSelector((state) => state.comments.length);
 
-    
+    /** submits form, dispatches sendPosts action, resets form values to empty */
     const handleSubmit = (e) => {
         e.preventDefault();
                        
