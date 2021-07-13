@@ -23,7 +23,7 @@ const Post = ({ post }) => {
 
     return (
         <>
-            <div className="post" data-testid = "post-element">
+            <div className="post">
                 <h3>{title}</h3>
                 <p>{postBody}</p>
                 <button className="comment-button" onClick={renderComments}>Show Comments</button>

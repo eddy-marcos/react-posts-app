@@ -18,7 +18,7 @@ const Posts = () => {
     }, [dispatch])
 
     return (
-        <div>
+        <div data-testid="posts">
             {
                 posts && posts.map( (post) => (
                     <Post 

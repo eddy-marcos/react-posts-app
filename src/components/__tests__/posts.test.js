@@ -1,38 +1,34 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Post from '../Post';
+import Posts from '../Posts';
+import thunkMiddleware from 'redux-thunk';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+
+const mockStore = configureStore([thunkMiddleware]);
 
 afterEach( () => {
     cleanup();
 });
 
 test('post should contain data', () => {
-   
-    const post = {
-        "userId": 1,
-        "id": 1,
-        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-     }
-    
-    render(<Post post={post}/>);
+    const initialState = {};
+    const store = mockStore(initialState);
 
-    const postElement = screen.getByTestId('post-element');
+    render(<Provider store={store}>{<Posts />}</Provider>);
+
+    const postElement = screen.getByTestId('posts');
 
     expect(postElement).toBeVisible();    
     expect(postElement).toBeValid();
-    expect(postElement).toContainHTML('<div></div>');
+    expect(postElement).toContainHTML('<div data-testid="posts" />');
     expect(postElement).toBeTruthy();
 })
 
-test('post component matches snapshot', () => {
-    const post = {
-        "userId": 1,
-        "id": 1,
-        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-     }
+test('posts component matches snapshot', () => {
+    const initialState = {};
+    const store = mockStore(initialState);
 
-     const tree = renderer.create(<Post post={post}/>).toJSON();
-     expect(tree).toMatchSnapshot();
+    const tree = renderer.create(<Provider store={store}>{<Posts />}</Provider>).toJSON();
+    expect(tree).toMatchSnapshot();
 })
