@@ -5,10 +5,14 @@ import NewPost from './NewPost';
 
 const Post = ({ post }) => {
     const [currentPost, setcurrentPost] = useState(null);
+    const [postsWithComments, setPostsWithComments] = useState({ comm: 0});
+    const [showNewCommentsButton, setShowNewCommentsButton] = useState(false);
     const { id, title, body: postBody } = post;
 
     const renderComments = () => {
         setcurrentPost(id);
+        setPostsWithComments({ ...postsWithComments, comm: id });
+        setShowNewCommentsButton(true);
     }
 
     return (
@@ -20,10 +24,10 @@ const Post = ({ post }) => {
 
                 <div>
                     {
-                    currentPost ? 
+                    postsWithComments ? 
                         <>
                             <Comments currentPost={currentPost}/> 
-                            <NewPost id={id}/>
+                            <NewPost id={id} showNewCommentsButton={showNewCommentsButton}/>
                         </>
                     : '' }
 

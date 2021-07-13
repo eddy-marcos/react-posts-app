@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sendPosts } from '../actions/posts';
 import '../styles/form.scss';
 
-const NewPost = ( {id} ) => {
+const NewPost = ( {id, showNewCommentsButton} ) => {
     const [newItem, setNewItem] = useState(false);
     const [formValues, setFormValues] = useState({postId: 0, id: 0, name: '', email: '', body: ''});
     const dispatch = useDispatch();
@@ -19,8 +19,12 @@ const NewPost = ( {id} ) => {
 
     return (
        <>
-        <button className="comment-button add" 
-                onClick={() => setNewItem(true)}>Add Comment</button>
+        {
+            showNewCommentsButton && 
+            
+                <button className="comment-button add" 
+                        onClick={() => setNewItem(true)}>Add Comment</button>
+        }
 
         {
             newItem && 
